@@ -1,0 +1,23 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=748
+
+(this plugin has largely been superceded by script#1502 for vim7.0)
+
+The HelpExtractor is a bit of vim code that allows one to merge the plugin with the help.  In addition, helptags is run automatically for the user.
+
+Typical use under Unix/Linux/Cygwin, done from the .vim (vimfiles) directory:
+
+    cat plugin/yourplugin.vim HelpExtractor.vim doc/yourplugin.txt > yourplugin.vim
+
+HelpExtractor will modify the accompanying plugin the first time the user runs Vim (it will delete the extraction code) and will generate the associated help file.  The distributed file will then have the following format:
+
+    [Plugin]
+    [HelpExtractor]
+    [HelpFile]
+
+When vim is next executed, the HelpExtractor modifies the plugin to be:
+
+    [Plugin]
+
+and creates a file in the user's .vim/doc directory containing the [Helpfile].  Since the HelpExtractor also runs helptags automatically, the associated help is immediately available without any actions being required of the user.  Notice that the [HelpExtractor] itself disappears.
+
+
